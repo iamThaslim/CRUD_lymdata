@@ -1,10 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Search from '../components/Search'
 
 function Home() {
   return (
     <>
-     <div className="d-flex justify-content-center align-items-center  table-responsive ms-4 me-4 ">
+    <div className='container-fluid'>
+        <div className='row'>
+            <div className='col-md-12'>
+        <Search />
+        </div>
+        </div>
+        <div className='row mt-2'>
+     <div className="col-md-12 d-flex justify-content-center align-items-center table-responsive">
      <table className="table table-striped table-bordered">
             <thead>
                 <tr>
@@ -39,6 +47,8 @@ function Home() {
                 </tr>
             </tbody>
         </table>
+    </div>
+    </div>
     </div>
     </>
   )
