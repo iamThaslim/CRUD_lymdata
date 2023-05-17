@@ -5,6 +5,8 @@ import {
 } from "react-router-dom"
 import Signin from "./pages/Signin";
 import Home from "./pages/Home";
+import Edit from "./pages/Edit";
+import Create from "./pages/Create";
 
 
 
@@ -14,6 +16,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Signin />} />
         <Route path="home" element={<Home />} />
+        <Route path="edit/:id" element={<Edit />} />
+        <Route path="create" element={<Create />} />
       </Routes>
     </Router>
   );
