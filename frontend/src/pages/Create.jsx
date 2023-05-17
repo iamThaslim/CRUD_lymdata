@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { base_url } from "../utils/base_url";
+import { config } from "../utils/axios_config";
 
 function Create() {
     const navigate = useNavigate();
@@ -22,7 +23,7 @@ function Create() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            await axios.post(`${base_url}employee`, formData);
+            await axios.post(`${base_url}employee`, formData, config);
             alert("Employee data added");
             navigate("/home")
         } catch(err) {

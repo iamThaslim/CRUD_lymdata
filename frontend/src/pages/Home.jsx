@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Search from '../components/Search'
 import axios from 'axios'
 import { base_url } from '../utils/base_url'
+import { config } from '../utils/axios_config'
 
 function Home() {
   const [employees, setEmployees] = useState([])
@@ -14,7 +15,7 @@ function Home() {
   const fetchEmployees = (page) => {
     const searchParams = { page, search: searchQuery };
 
-    axios.get(`${base_url}employee/getAllEmployees`, { params: searchParams })
+    axios.get(`${base_url}employee/getAllEmployees`, { ...config, params: searchParams })
       .then(response => {
         setEmployees(response.data.employees.rows);
         setTotalPages(Math.ceil(response.data.employees.count / 10));

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom"
 import { base_url } from "../utils/base_url";
+import { config } from "../utils/axios_config";
 
 function Edit() {
     const [employees, setEmployees] = useState({})
@@ -11,7 +12,7 @@ function Edit() {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await axios.get(`${base_url}employee/getEmployee/${params.id}`)
+                const response = await axios.get(`${base_url}employee/getEmployee/${params.id}`, config)
                 const { data } = response;
                 setEmployees(data.employee)
             } catch (error) {
@@ -24,7 +25,7 @@ function Edit() {
     const handleUpdate = async (e) => {
         e.preventDefault();
         try{
-            await axios.put(`${base_url}employee/updateEmployee/${params.id}`, employees)
+            await axios.put(`${base_url}employee/updateEmployee/${params.id}`, employees, config)
             alert('Employee update Successfull')
             navigate('/home')
         } catch(err) {
