@@ -8,7 +8,7 @@ const User = sequelize.define('User', {
         autoIncrement: true
     },
     name: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING, 
         allowNull: false,
     },
     email: {
@@ -23,3 +23,4 @@ const User = sequelize.define('User', {
 });
 
 module.exports = User;
+
